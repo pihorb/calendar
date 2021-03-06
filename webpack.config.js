@@ -19,7 +19,7 @@ const pluginOptions = () => {
 }
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: ['@babel/polyfill', './src/index.tsx'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
@@ -33,6 +33,7 @@ module.exports = {
       chunks: 'all',
     },
   },
+  devtool: isDev ? 'eval-source-map' : '',
   devServer: {
     port: 4200,
   },
